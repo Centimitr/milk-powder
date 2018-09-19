@@ -1,4 +1,6 @@
-import {Task, TaskRunner, TaskStepEval, TaskStepURL} from "./runner";
+import {Task} from "./runner/Task";
+import {TaskStepEval, TaskStepURL} from "./runner/TaskStep";
+import {TaskRunner} from "./runner/TaskRunner";
 
 const fn = () => document.querySelector('[itemprop="price"]').textContent.trim();
 const chemistURL = 'https://www.chemistwarehouse.com.au/buy/88027/a2-milk-powder-manuka-honey-400g';

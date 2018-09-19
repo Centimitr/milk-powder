@@ -1,41 +1,5 @@
 import * as puppeteer from "puppeteer";
-
-export class Task {
-    ptr = -1;
-    steps = [];
-
-    constructor(...steps) {
-        this.steps = steps;
-    }
-
-    next() {
-        this.ptr += 1;
-        if (this.ptr + 1 > this.steps.length) {
-            return null;
-        }
-        return this.steps[this.ptr];
-    }
-}
-
-export class TaskStepURL {
-    url: string;
-    waitUntil: string;
-
-    constructor(url, waitUntil) {
-        this.url = url;
-        this.waitUntil = waitUntil;
-    }
-}
-
-export class TaskStepEval {
-    fn: Function;
-    key: string;
-
-    constructor(fn, key) {
-        this.fn = fn;
-        this.key = key;
-    }
-}
+import {TaskStepEval, TaskStepURL} from "./TaskStep";
 
 export class TaskRunner {
     browser: any;
