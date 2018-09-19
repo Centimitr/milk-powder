@@ -1,0 +1,22 @@
+{
+  "name": "milk-powder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Centimitr/milk-powder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Centimitr/milk-powder/issues"
+  },
+  "homepage": "https://github.com/Centimitr/milk-powder#readme",
+  "dependencies": {
+    "puppeteer": "^1.8.0"
+  }
+}
