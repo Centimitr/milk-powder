@@ -36,13 +36,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var runner_1 = require("./runner");
+var Task_1 = require("./runner/Task");
+var TaskStep_1 = require("./runner/TaskStep");
+var TaskRunner_1 = require("./runner/TaskRunner");
 var fn = function () { return document.querySelector('[itemprop="price"]').textContent.trim(); };
 var chemistURL = 'https://www.chemistwarehouse.com.au/buy/88027/a2-milk-powder-manuka-honey-400g';
 var epharmacyURL = 'http://www.epharmacy.com.au/product.asp?id=88027&pname=A2+Milk+Powder+Manuka+Honey+400g';
-var t1 = new runner_1.Task(new runner_1.TaskStepURL(chemistURL, 'networkidle2'), new runner_1.TaskStepEval(fn, 'price'));
-var t2 = new runner_1.Task(new runner_1.TaskStepURL(epharmacyURL, 'networkidle2'), new runner_1.TaskStepEval(fn, 'price'));
-var r = new runner_1.TaskRunner();
+var t1 = new Task_1.Task(new TaskStep_1.TaskStepURL(chemistURL, 'networkidle2'), new TaskStep_1.TaskStepEval(fn, 'price'));
+var t2 = new Task_1.Task(new TaskStep_1.TaskStepURL(epharmacyURL, 'networkidle2'), new TaskStep_1.TaskStepEval(fn, 'price'));
+var r = new TaskRunner_1.TaskRunner();
 // @ts-ignore
 (function () { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
