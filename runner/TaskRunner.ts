@@ -14,14 +14,17 @@ export class TaskRunner {
         // @ts-ignore
         const state = new Map<string, any>();
         while (ns = t.next()) {
-            if (ns instanceof TaskStepURL) {
-                await page.goto(ns.url, {waitUntil: ns.waitUntil});
-            } else if (ns instanceof TaskStepEval) {
-                const v = await page.evaluate(ns.fn);
-                state.set(ns.key, v);
+            // @ts-ignore
+            switch (ns.constructor.name) {
+                case TaskStepURL.name:
+                    await page.goto(ns.url, ns.params);
+                    break;
+                case TaskStepEval.name:
+                    const v = await page.evaluate(ns.fn);
+                    state.set(ns.key, v);
+                    break;
             }
         }
-
         console.table(state);
         await page.close();
     }

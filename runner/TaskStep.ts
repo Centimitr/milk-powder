@@ -1,10 +1,10 @@
 export class TaskStepURL {
     url: string;
-    waitUntil: string;
+    params: object;
 
-    constructor(url, waitUntil) {
+    constructor(url, params = {}) {
         this.url = url;
-        this.waitUntil = waitUntil;
+        this.params = params
     }
 }
 
