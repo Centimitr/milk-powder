@@ -1,5 +1,6 @@
 import * as puppeteer from "puppeteer";
 import {TaskStepEval, TaskStepURL} from "./TaskStep";
+import {Task} from "./Task";
 
 export class TaskRunner {
     browser: any;
@@ -8,7 +9,7 @@ export class TaskRunner {
         this.browser = await puppeteer.launch();
     }
 
-    async exec(t) {
+    async exec(t: Task) {
         const page = await this.browser.newPage();
         let ns;
         // @ts-ignore
@@ -27,6 +28,10 @@ export class TaskRunner {
         }
         console.table(state);
         await page.close();
+    }
+
+    async execAll(tList: Task[]) {
+        return Promise.all(tList.map(t => this.exec(t)))
     }
 
     async close() {
